@@ -22,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestController
-public class GreeterApplication {
+public class VisitorApplication {
 
     @Bean
     @LoadBalanced
@@ -34,7 +34,7 @@ public class GreeterApplication {
     private RestTemplate rest;
 
     public static void main(String[] args) {
-        SpringApplication.run(GreeterApplication.class, args);
+        SpringApplication.run(VisitorApplication.class, args);
     }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
