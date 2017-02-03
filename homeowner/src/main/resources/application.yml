@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: homeowner
+  cloud:
+    services:
+      registrationMethod: direct
+
+---
+
+spring:
+  profiles: dev
+
+security:
+  basic:
+    enabled: false

@@ -1,0 +1,10 @@
+---
+instances: 1
+memory: 1G
+applications:
+  - name: visitor
+    random-route: true
+    services:
+      - service-registry
+    env:
+      SPRING_PROFILES_ACTIVE: dev

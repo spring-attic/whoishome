@@ -1,0 +1,56 @@
+:imagesdir: docs/images
+
+= Service Registry sample
+
+*Homeowner* and *Visitor* are example applications demonstrating the use of Service Registry for Pivotal Cloud Foundry. (For information on the Service Registry product, please http://docs.pivotal.io/spring-cloud-services/service-registry/[see the documentation].)
+
+== Building and Deploying
+
+\Using Gradle, run `./gradlew build` (OS X, Linux) or `gradlew.bat build` (Windows).
++
+....
+$ ./gradlew build
+....
+
+. Run the deployment script (if you used Maven, link:scripts/deploy_mvn.sh[`scripts/deploy_mvn.sh`] or link:scripts/deploy_mvn.bat[`scripts/deploy_mvn.bat`]; if you used Gradle, link:scripts/deploy_gradle.sh[`scripts/deploy_gradle.sh`] or link:scripts/deploy_gradle.bat[`scripts/deploy_gradle.bat`]).
++
+....
+$ ./scripts/deploy_gradle.sh
+....
++
+The script will create a Service Registry service instance and then push the applications and bind them to the service.
+
+. When the script has finished, set the `TRUST_CERTS` environment variable to the API endpoint of your Elastic Runtime instance (as in `api.example.com`), then restage the applications so that the changes will take effect. Setting `TRUST_CERTS` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can communicate with a Service Registry service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html#self-signed-ssl-certificate[Service Registry documentation]).
++
+....
+$ cf set-env homeowner TRUST_CERTS api.wise.com
+Setting env variable 'TRUST_CERTS' to 'api.wise.com' for app homeowner in org myorg / space development as user...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restage homeowner
+....
++
+....
+$ cf set-env visitor CF_TARGET https://api.wise.com
+Setting env variable 'CF_TARGET' to 'https://api.wise.com' for app visitor in org myorg / space development as user...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restage visitor
+....
++
+[NOTE]
+====
+By default, the Spring Cloud Services Starters for Service Registry causes all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html#disable-http-basic-auth[see the documentation]. (HTTP Basic authentication is disabled in these sample applications.)
+====
+
+== Trying It Out
+
+. Visit `[ROUTE]/hello`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a greeting message, which (to begin with) should be &#8220;Hello, Bob!&#8221;
++
+image::greeting.png[link:docs/images/greeting.png]
+
+. To get a different greeting message, you can provide `salutation` and `name` parameters, as in `[ROUTE]/hello?salutation=Hi&name=John`. The Visitor application will send those parameters to the Homeowner application and the resulting greeting will be customized to match.
++
+image::greeting-with-parameters.png[link:docs/images/greeting-with-parameters.png]
+
+For more information about the Service Registry and its use in a client application, see the http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html[Service Registry documentation].
