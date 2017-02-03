@@ -45,7 +45,7 @@ By default, the Spring Cloud Services Starters for Service Registry causes all a
 
 == Trying It Out
 
-. Visit `[ROUTE]/hello`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a greeting message, which (to begin with) should be &#8220;Visitor: 'Knock, knock'. Homeowner: 'Who is it?'&#8221;
+. Visit `[ROUTE]/hello`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a message back.
 +
 image::greeting.png[link:docs/images/greeting.png]
 
