@@ -38,15 +38,32 @@ public class VisitorApplication {
     }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello(@RequestParam(value="salutation", defaultValue="Hello") String salutation, @RequestParam(value="name", defaultValue="Bob") String name) {
-        URI uri = UriComponentsBuilder.fromUriString("//homeowner/greeting")
-            .queryParam("salutation", salutation)
-            .queryParam("name", name)
-            .build()
-            .toUri();
+    public String hello(@RequestParam(value="name", defaultValue="Bob") String name) {
+        Greeting knockGreeting = knock();
+        Greeting greetingResponse = greetingResponse(name);
 
-        Greeting greeting = rest.getForObject(uri, Greeting.class);
-        return greeting.getMessage();
+        return knockGreeting.getMessage() + "<br/>" + greetingResponse.getMessage();
+    }
+
+    private Greeting knock() {
+      URI uri = UriComponentsBuilder.fromUriString("//homeowner/knock")
+        .build()
+        .toUri();
+
+      Greeting greeting = rest.getForObject(uri, Greeting.class);
+
+      return greeting;
+    }
+
+    private Greeting greetingResponse(String name) {
+      URI uri = UriComponentsBuilder.fromUriString("//homeowner/greeting")
+        .queryParam("name", name)
+        .build()
+        .toUri();
+
+      Greeting greeting = rest.getForObject(uri, Greeting.class);
+
+      return greeting;
     }
 
     private static class Greeting {
