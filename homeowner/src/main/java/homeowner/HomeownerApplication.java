@@ -1,4 +1,4 @@
-package message_generation;
+package homeowner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,12 +13,12 @@ import org.apache.commons.logging.LogFactory;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestController
-public class MessageGenerationApplication {
+public class HomeownerApplication {
 
-    private Log log = LogFactory.getLog(MessageGenerationApplication.class);
+    private Log log = LogFactory.getLog(HomeownerApplication.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(MessageGenerationApplication.class, args);
+        SpringApplication.run(HomeownerApplication.class, args);
     }
 
     @RequestMapping("/greeting")
