@@ -22,8 +22,8 @@ public class VisitorApplication {
         SpringApplication.run(VisitorApplication.class, args);
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello(@RequestParam(value="name", defaultValue="Bob") String name) {
+    @RequestMapping(value = "/knock", method = RequestMethod.GET)
+    public String knock(@RequestParam(value="name", defaultValue="Bob") String name) {
       return contactHomeowner.checkIfAnybodyIsHome(name);
     }
 
