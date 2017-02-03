@@ -1,8 +1,8 @@
 :imagesdir: docs/images
 
-= Service Registry sample
+= Spring Cloud Services + Container-to-Container Networking sample
 
-*Homeowner* and *Visitor* are example applications demonstrating the use of Service Registry for Pivotal Cloud Foundry. (For information on the Service Registry product, please http://docs.pivotal.io/spring-cloud-services/service-registry/[see the documentation].)
+*Homeowner* and *Visitor* are example applications demonstrating the use of Service Registry and Circuit Breaker from Spring Cloud Services with Container-to-Container (C2C) Networking from Cloud Foundry.
 
 == Building and Deploying
 
@@ -47,10 +47,10 @@ By default, the Spring Cloud Services Starters for Service Registry causes all a
 
 . Visit `[ROUTE]/hello`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a message back.
 +
-image::greeting.png[link:docs/images/greeting.png]
-
 . To get a different greeting message, you can provide a `name` parameter, as in `[ROUTE]/hello?name=John`. The Visitor application will send those parameters to the Homeowner application and the resulting greeting will be customized to match.
 +
-image::greeting-with-parameters.png[link:docs/images/greeting-with-parameters.png]
+image::circuit-broken-c2c.png[link:docs/images/circuit-broken-c2c.png]
++
+image::circuit-open-c2c.png[link:docs/images/circuit-open-c2c.png]
 
 For more information about the Service Registry and its use in a client application, see the http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html[Service Registry documentation].

@@ -35,6 +35,7 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry")
+    compile("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
