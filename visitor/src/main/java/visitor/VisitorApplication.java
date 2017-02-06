@@ -5,14 +5,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RestController
+@Controller
 public class VisitorApplication {
 
     @Autowired
@@ -23,8 +24,10 @@ public class VisitorApplication {
     }
 
     @RequestMapping(value = "/knock", method = RequestMethod.GET)
-    public String knock(@RequestParam(value="name", defaultValue="Bob") String name) {
-      return contactHomeowner.checkIfAnybodyIsHome(name);
+    public String knock(@RequestParam(value="name", defaultValue="Bob") String name, Model model) {
+      String message = contactHomeowner.checkIfAnybodyIsHome(name);
+      model.addAttribute("message", message);
+      return "knock";
     }
 
 }

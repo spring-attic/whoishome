@@ -44,9 +44,7 @@ public class ContactHomeowner {
       .build()
       .toUri();
 
-    Greeting greeting = rest.getForObject(uri, Greeting.class);
-
-    return greeting;
+    return populateGreetingFromUri(uri);
   }
 
   private Greeting greetingResponse(String name) {
@@ -55,6 +53,10 @@ public class ContactHomeowner {
       .build()
       .toUri();
 
+    return populateGreetingFromUri(uri);
+  }
+
+  private Greeting populateGreetingFromUri(URI uri) {
     Greeting greeting = rest.getForObject(uri, Greeting.class);
 
     return greeting;
