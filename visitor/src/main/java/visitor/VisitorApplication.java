@@ -25,7 +25,7 @@ public class VisitorApplication {
 
     @RequestMapping(value = "/knock", method = RequestMethod.GET)
     public String knock(@RequestParam(value="name", defaultValue="Bob") String name, Model model) {
-      String message = contactHomeowner.checkIfAnybodyIsHome(name);
+      String message = "<h1>Conversation:<br/><small>" + contactHomeowner.checkIfAnybodyIsHome(name) + "</small></h1>";
       model.addAttribute("message", message);
       return "knock";
     }
