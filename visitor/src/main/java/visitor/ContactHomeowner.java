@@ -28,15 +28,25 @@ public class ContactHomeowner {
   }
 
   @HystrixCommand(fallbackMethod = "nobodyHome")
-  String checkIfAnybodyIsHome(String name) {
+  String checkIfAnybodyIsHome() {
     Greeting knockGreeting = knock();
-    Greeting greetingResponse = greetingResponse(name);
 
-    return knockGreeting.getMessage() + "<br/>" + greetingResponse.getMessage();
+    return knockGreeting.getMessage();
   }
 
-  String nobodyHome(String name) {
-    return "Nobody seems to be Home. " + name + " out!";
+  String nobodyHome() {
+    return "Visitor: Nobody seems to be Home.";
+  }
+
+  @HystrixCommand(fallbackMethod = "goAway")
+  String respondToGreeting(String name) {
+    Greeting greetingResponse = greetingResponse(name);
+
+    return greetingResponse.getMessage();
+  }
+
+  String goAway(String name) {
+    return "Homeowner: Go away, " + name + "! I don't want any!";
   }
 
   private Greeting knock() {

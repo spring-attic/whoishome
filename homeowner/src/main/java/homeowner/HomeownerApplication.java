@@ -23,6 +23,7 @@ public class HomeownerApplication {
 
     @RequestMapping("/knock")
     public Greeting knock() {
+      log.info("Respond to knock");
       return new Greeting();
     }
 
@@ -34,8 +35,8 @@ public class HomeownerApplication {
 
     private static class Greeting {
 
-        private static final String TEMPLATE = "Visitor: 'It's %s. What's your favorite color?'";
-        private static final String DEFAULT_GREETING = "Visitor: 'Knock, knock'.<br/>Homeowner: 'Who is it?'";
+        private static final String TEMPLATE = "Visitor: 'It's %s. What's your favorite color?'<br/>Homeowner: 'Get off my lawn!'";
+        private static final String DEFAULT_GREETING = "Visitor: 'Knock, knock.'<br/>Homeowner: 'Who's there?'";
 
         private String message;
 

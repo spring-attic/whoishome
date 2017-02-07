@@ -24,10 +24,27 @@ public class VisitorApplication {
     }
 
     @RequestMapping(value = "/knock", method = RequestMethod.GET)
-    public String knock(@RequestParam(value="name", defaultValue="Bob") String name, Model model) {
-      String message = "<h1>Conversation:<br/><small>" + contactHomeowner.checkIfAnybodyIsHome(name) + "</small></h1>";
+    public String knock(Model model) {
+      String knockResponse = contactHomeowner.checkIfAnybodyIsHome();
+      String message = formatMessage(knockResponse);
       model.addAttribute("message", message);
+
       return "knock";
+    }
+
+    @RequestMapping(value = "/greeting", method = RequestMethod.POST)
+    public String knock(@RequestParam(value="visitorsName", defaultValue="Bob") String name, Model model) {
+      String greetingResponse = contactHomeowner.respondToGreeting(name);
+      String message = formatMessage(greetingResponse);
+      model.addAttribute("message", message);
+
+      return "greeting";
+    }
+
+    private String formatMessage(String aResponse) {
+      String message = "<h1>Conversation:<br/><small>" + aResponse + "</small></h1>";
+
+      return message;
     }
 
 }
