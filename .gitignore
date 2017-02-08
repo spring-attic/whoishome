@@ -1,3 +1,6 @@
 build
 target
 .gradle
+.project
+org.eclipse*
+.classpath
