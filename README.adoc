@@ -46,16 +46,16 @@ By default, the Spring Cloud Services Starters for Service Registry causes all a
 == Trying It Out
 
 Visit `[ROUTE]/knock`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a message back.
-+
+
 When the Visitor and Homeowner applications are initially deployed, the Visitor application will not be able to contact the Homeowner application. This is because a route has not been established between the applications using the https://github.com/cloudfoundry-incubator/cf-networking-release[Network Access CF CLI plugin]. The following screenshot shows an example where nobody is home due to lack of communication with Homeowner from Visitor.
-+
+
 image::circuit-broken-c2c.png[link:docs/images/circuit-broken-c2c.png]
-+
+
 Once the Network Access CF CLI plugin is installed and you have sufficient authorization, you can run the following command to allow communication between Visitor and Homeowner applications:
 . `cf allow-access visitor homeowner --protocol tcp --port 8080 `
-+
+
 Here is an example of the Visitor and Homeowner communicating successfully.
-+
+
 image::circuit-open-c2c.png[link:docs/images/circuit-open-c2c.png]
 
 For more information about the Service Registry and its use in a client application, see the http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html[Service Registry documentation].
