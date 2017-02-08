@@ -45,9 +45,7 @@ By default, the Spring Cloud Services Starters for Service Registry causes all a
 
 == Trying It Out
 
-. Visit `[ROUTE]/knock`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a message back.
-+
-. To get a different greeting message, you can provide a `name` parameter, as in `[ROUTE]/knock?name=John`. The Visitor application will send those parameters to the Homeowner application and the resulting greeting will be customized to match.
+Visit `[ROUTE]/knock`, where `[ROUTE]` is the route bound to the Visitor application. The Visitor application will use the Service Registry to look up the Homeowner application and get a message back.
 +
 When the Visitor and Homeowner applications are initially deployed, the Visitor application will not be able to contact the Homeowner application. This is because a route has not been established between the applications using the https://github.com/cloudfoundry-incubator/cf-networking-release[Network Access CF CLI plugin]. The following screenshot shows an example where nobody is home due to lack of communication with Homeowner from Visitor.
 +
