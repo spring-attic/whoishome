@@ -4,3 +4,4 @@ target
 .project
 org.eclipse*
 .classpath
+bin
