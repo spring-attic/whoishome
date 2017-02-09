@@ -35,8 +35,8 @@ public class HomeownerApplication {
 
     private static class Greeting {
 
-        private static final String TEMPLATE = "Visitor: 'It's %s. What's your favorite color?'<br/>Homeowner: 'Get off my lawn!'";
-        private static final String DEFAULT_GREETING = "Visitor: 'Knock, knock.'<br/>Homeowner: 'Who's there?'";
+        private static final String TEMPLATE = "Homeowner: 'I don't want any! Get off my lawn, %s!'";
+        private static final String DEFAULT_GREETING = "Homeowner: 'Who's there?'";
 
         private String message;
 
