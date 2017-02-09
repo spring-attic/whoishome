@@ -1,6 +1,6 @@
-# Spring Cloud Services + Container-to-Container Networking sample
+# Who is Home?
 
-*Homeowner* and *Visitor* are example applications demonstrating the use of Service Registry and Circuit Breaker from Spring Cloud Services with Container-to-Container (C2C) Networking from Cloud Foundry.
+*Homeowner* and *Visitor* are sample applications demonstrating the use of Service Registry and Circuit Breaker from Spring Cloud Services with Container-to-Container (C2C) Networking from Cloud Foundry.
 
 ## Building and Deploying
 
