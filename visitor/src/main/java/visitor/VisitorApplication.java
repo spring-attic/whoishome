@@ -25,28 +25,26 @@ public class VisitorApplication {
 
     @RequestMapping(value = "/knock", method = RequestMethod.GET)
     public String knock(Model model) {
-      String knockKnock = "Visitor: 'Knock, knock.'<br/>";
-      String knockResponse = contactHomeowner.checkIfAnybodyIsHome();
-      String message = formatMessage(knockKnock + knockResponse);
-      model.addAttribute("message", message);
+      Conversation conversation = new Conversation("Visitor: 'Knock, knock.'");
+      Message knockResponse = contactHomeowner.checkIfAnybodyIsHome();
+
+      conversation.addContent(knockResponse.getMessage());
+      model.addAttribute("conversation", conversation);
+      model.addAttribute("failure", knockResponse.isCommunicationFailure());
 
       return "knock";
     }
 
     @RequestMapping(value = "/greeting", method = RequestMethod.POST)
     public String greeting(@RequestParam(value="visitorsName", defaultValue="Bob") String name, Model model) {
-      String greeting = "Visitor: 'It's " + name + ". What's your favorite color?'<br/>";
-      String greetingResponse = contactHomeowner.respondToGreeting(name);
-      String message = formatMessage(greeting + greetingResponse);
-      model.addAttribute("message", message);
+      Conversation conversation = new Conversation("Visitor: 'It's " + name + ". What's your favorite color?'");
+      Message greetingResponse = contactHomeowner.respondToMessage(name);
+
+      conversation.addContent(greetingResponse.getMessage());
+      model.addAttribute("conversation", conversation);
+      model.addAttribute("failure", greetingResponse.isCommunicationFailure());
 
       return "greeting";
-    }
-
-    private String formatMessage(String aResponse) {
-      String message = "<h1>Conversation:<br/><small>" + aResponse + "</small></h1>";
-
-      return message;
     }
 
 }
