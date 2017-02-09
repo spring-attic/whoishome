@@ -62,8 +62,4 @@ After responding in the text field what the name of the visitor is then you will
 
 image::circuit-open-greeting-response.png[link:docs/images/circuit-open-greeting-response.png]
 
-If the Network Access is removed between visitor and homeowner apps in between /knock and submitting the name of the visitor then the greeting will come back as:
-
-image::circuit-broken-greeting-response.png[link:docs/images/circuit-broken-greeting-response.png]
-
 For more information about the Service Registry and its use in a client application, see the http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html[Service Registry documentation].
