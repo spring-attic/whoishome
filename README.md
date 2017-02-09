@@ -46,7 +46,7 @@ Visit `[ROUTE]/knock`, where `[ROUTE]` is the route bound to the Visitor applica
 
 When the Visitor and Homeowner applications are initially deployed, the Visitor application will not be able to contact the Homeowner application. This is because a route has not been established between the applications using the [Network Access CF CLI plugin](https://github.com/cloudfoundry-incubator/cf-networking-release). The following screenshot shows an example where nobody is home due to lack of communication with Homeowner from Visitor.
 
-<img src="docs/images/circuit-broken-c2c.png" style="width: 50%; border: 1px solid #252525;"/>
+![](docs/images/circuit-broken-c2c.png "Circuit broken between visitor and homeowner" {width=50% border-size=1px})
 
 Once the Network Access CF CLI plugin is installed and you have sufficient authorization, you can run the following command to allow communication between Visitor and Homeowner applications:
 
