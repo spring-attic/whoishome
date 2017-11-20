@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: homeowner
+
+security:
+  basic:
+    enabled: false

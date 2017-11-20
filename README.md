@@ -50,7 +50,7 @@ When the Visitor and Homeowner applications are initially deployed, the Visitor 
 
 Once the Network Access CF CLI plugin is installed and you have sufficient authorization, you can run the following command to allow communication between Visitor and Homeowner applications:
 
-`cf allow-access visitor homeowner --protocol tcp --port 8080 `
+`cf add-network-policy visitor --destination-app homeowner --protocol tcp --port 8080`
 
 Here is an example of the Visitor and Homeowner communicating successfully.
 
