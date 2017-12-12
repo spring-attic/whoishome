@@ -7,3 +7,4 @@ org.eclipse*
 bin
 .vscode/
 *.log
+.sts4-cache
