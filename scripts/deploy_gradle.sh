@@ -17,8 +17,8 @@ do
 done
 echo
 echo "Service Registry created. Pushing applications."
-pushd homeowner && cf push -p build/libs/homeowner-0.0.1-SNAPSHOT.jar
+pushd homeowner && cf push -p build/libs/homeowner.jar
 popd
-pushd visitor && cf push -p build/libs/visitor-0.0.1-SNAPSHOT.jar
+pushd visitor && cf push -p build/libs/visitor.jar
 popd
 echo "" && echo "Done!" && echo ""

@@ -13,9 +13,9 @@ cf create-service p-service-registry standard service-registry > nul
     echo Circuit Breaker Dashboard created.
     echo Pushing applications.
     pushd homeowner
-    cf push -p build/libs/homeowner-0.0.1-SNAPSHOT.jar
+    cf push -p build/libs/homeowner.jar
     popd
     pushd visitor
-    cf push -p build/libs/visitor-0.0.1-SNAPSHOT.jar
+    cf push -p build/libs/visitor.jar
     popd
     echo Done!
