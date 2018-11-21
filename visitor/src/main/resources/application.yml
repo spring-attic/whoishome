@@ -1,7 +1,3 @@
 spring:
   application:
     name: visitor
-
-security:
-  basic:
-    enabled: false

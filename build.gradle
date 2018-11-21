@@ -4,3 +4,9 @@ subprojects {
 		mavenCentral()
 	}
 }
+
+ext {
+	springBootVersion = '2.1.0.RELEASE'
+	springCloudServicesVersion = '2.0.3.RELEASE'
+	springCloudVersion = 'Greenwich.M3'
+}
