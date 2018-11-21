@@ -1,10 +1,10 @@
 ---
-instances: 1
-memory: 1G
 applications:
-  - name: homeowner
-    no-route: true
-    services:
-      - service-registry
-    env:
-      SPRING_PROFILES_ACTIVE: dev
+- name: homeowner
+  instances: 1
+  memory: 1G
+  no-route: true
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack.git
+  services:
+  - service-registry
