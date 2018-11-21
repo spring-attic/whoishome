@@ -8,3 +8,4 @@ bin
 .vscode/
 *.log
 .sts4-cache
+.idea
