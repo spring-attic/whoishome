@@ -1,11 +1,11 @@
 ---
-instances: 1
-memory: 1G
 applications:
-  - name: visitor
-    random-route: true
-    services:
-      - service-registry
-      - circuit-breaker
-    env:
-      SPRING_PROFILES_ACTIVE: dev
+- name: visitor
+  instances: 1
+  memory: 1G
+  random-route: true
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack.git
+  services:
+  - service-registry
+  - circuit-breaker

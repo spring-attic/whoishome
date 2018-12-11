@@ -4,16 +4,3 @@ spring:
   cloud:
     services:
       registrationMethod: direct
-
----
-
-spring:
-  profiles: dev
-
-security:
-  basic:
-    enabled: false
-
-management:
-  security:
-    enabled: false
