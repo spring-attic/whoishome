@@ -18,7 +18,7 @@ $ ./scripts/deploy_gradle.sh
 
 The script will create a Service Registry service instance and then push the applications and bind them to the service.
 
-When the script has finished, set the `TRUST_CERTS` environment variable to the API endpoint of your Elastic Runtime instance (as in `api.example.com`), then restage the applications so that the changes will take effect. Setting `TRUST_CERTS` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can communicate with a Service Registry service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the [Service Registry Documentation](http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html#self-signed-ssl-certificate).
+When the script has finished, set the `TRUST_CERTS` environment variable to the API endpoint of your Elastic Runtime instance (as in `api.example.com`), then restage the applications so that the changes will take effect. Setting `TRUST_CERTS` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can communicate with a Service Registry service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the [Service Registry Documentation](https://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html#self-signed-ssl-certificate).
 
 ```
 $ cf set-env homeowner TRUST_CERTS api.wise.com
@@ -38,7 +38,7 @@ $ cf restage visitor
 
 **NOTE**
 
-> By default, the Spring Cloud Services Starters for Service Registry causes all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, [see the documentation](http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html#disable-http-basic-auth). HTTP Basic authentication is disabled in these sample applications.
+> By default, the Spring Cloud Services Starters for Service Registry causes all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, [see the documentation](https://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html#disable-http-basic-auth). HTTP Basic authentication is disabled in these sample applications.
 
 ## Trying It Out
 
@@ -60,4 +60,4 @@ After responding in the text field what the name of the visitor is then you will
 
 <img src="docs/images/circuit-open-greeting-response.png" width="50%"/>
 
-For more information about the Service Registry and its use in a client application, see the [Service Registry documentation](http://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html).
+For more information about the Service Registry and its use in a client application, see the [Service Registry documentation](https://docs.pivotal.io/spring-cloud-services/service-registry/writing-client-applications.html).
